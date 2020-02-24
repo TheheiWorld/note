@@ -57,4 +57,15 @@ ceph
         拒绝部分老的请求
         优先级请求
         随机拒绝
+    自治式
+        每层都可以降级
+    集中式
+        网关层降级
+    
+灰度发布
+    spring cloud - nepxion discovery
 
+服务全链路压测
+    JMeter
+    TCPCopy
+    Apache ab
