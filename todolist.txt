@@ -1,0 +1,60 @@
+sharding-jdbc 
+rdb (mysql...) -> nosql(mongo....) -> newsql(tidb...)
+mq 顺序写 db 随机写
+fsatdfs
+ceph
+
+水平分层架构
+    app -> nginx -> gateway -> (mq) -> service -> dao -> db
+
+面向服务架构(垂直架构) SOA
+    强依赖 ESB 企业服务总线
+
+微服务架构(水平 + 垂直)
+    最终一致性
+    项目持续交付、迭代
+    高可用手段
+        服务冗余
+        无状态化（任何服务对等）
+        负载均衡
+        超时机制
+        异步化设计
+        服务限流降级熔断
+        架构拆分、服务治理
+
+共享资源串行化 -- 分布式锁 CP模型
+    redis 
+        主从同步AP模型
+        RedLock算法
+    zookeeper
+        zab一致性协议
+    etcd
+        raft
+    redission
+
+分布式事务
+    刚性分布式
+        强一致性
+        XA模型 ACID
+        CAP 
+            CP
+        2PC
+    柔性分布
+        最终一致性
+        CAP、BASE
+            AP
+    XA 
+        AP 应用程序
+        RM 资源管理器
+        TM 事务管理器
+    TCC
+        业务侵入性大 try cancel confirm
+    SAGA
+
+服务降级
+    保证核心服务可用，非核心服务弱可用
+    拒绝部分请求
+        拒绝部分老的请求
+        优先级请求
+        随机拒绝
+
